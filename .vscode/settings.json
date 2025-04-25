@@ -1,0 +1,6 @@
+{
+  "eslint.validate": ["javascript", "typescript", "astro"],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.documentSelectors": ["*.{js,ts,astro,md,mdx}"]
+}
