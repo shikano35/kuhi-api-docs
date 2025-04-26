@@ -1,0 +1,30 @@
+---
+import '@fontsource/roboto-slab';
+---
+
+<footer>
+  <div class="border-border grid grid-cols-1 border-t py-6 md:grid-cols-2">
+    <section
+      class="text-muted-foreground flex flex-col items-center justify-center text-sm leading-6 font-light md:items-start"
+      aria-labelledby="footer-title"
+    >
+      <a
+        href="/"
+        aria-label="ホームページ"
+        class="text-primary mb-2.5 text-2xl font-normal"
+      >
+        <span class="font-roboto-slab">HaikuMonument API</span>
+      </a>
+      <p>句碑の情報を提供するAPI</p>
+      <small class="block py-4 text-xs">
+        &copy; {new Date().getFullYear()} Shin Takemura
+      </small>
+    </section>
+    <nav aria-label="Footer Navigation">
+      <ul
+        class="mt-4 -ml-3 flex items-center justify-center gap-0.5 md:justify-end md:gap-2 lg:gap-4"
+      >
+      </ul>
+    </nav>
+  </div>
+</footer>
