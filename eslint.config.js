@@ -1,34 +1,31 @@
-import astroPlugin from "eslint-plugin-astro";
-import jsxA11y from "eslint-plugin-jsx-a11y";
-import prettierPlugin from "eslint-plugin-prettier";
-import prettierConfig from "eslint-config-prettier";
-import mdxPlugin from "eslint-plugin-mdx";
-import mdxParser from "eslint-mdx";
+import astroPlugin from 'eslint-plugin-astro';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import prettierPlugin from 'eslint-plugin-prettier';
+import prettierConfig from 'eslint-config-prettier/flat';
+import * as mdx from 'eslint-plugin-mdx';
 
 export default [
-  ...astroPlugin.configs["flat/recommended"],
+  ...astroPlugin.configs['flat/recommended'],
 
-  ...jsxA11y.flatConfigs.recommended,
+  jsxA11y.flatConfigs.recommended,
 
+  prettierConfig,
   {
     plugins: { prettier: prettierPlugin },
-    extends: [prettierConfig],
-    rules: { "prettier/prettier": "error" },
+    rules: { 'prettier/prettier': 'error' },
     languageOptions: {
-      parserOptions: { ecmaVersion: 2022, sourceType: "module" },
+      parserOptions: { ecmaVersion: 2022, sourceType: 'module' },
     },
   },
 
   {
-    files: ["**/*.{md,mdx}"],
-    plugins: { mdx: mdxPlugin },
-    languageOptions: {
-      parser: mdxParser,
-      parserOptions: { ecmaVersion: 2022, sourceType: "module" },
-    },
-    processor: mdxPlugin.processors.remark,
-    rules: { "mdx/code-blocks": "warn" },
+    files: ['**/*.{md,mdx}'],
+    ...mdx.flat,
+  },
+  {
+    files: ['**/*.{md,mdx}'],
+    ...mdx.flatCodeBlocks,
   },
 
-  { ignores: ["node_modules/**"] },
+  { ignores: ['node_modules/**', 'dist/**'] },
 ];
