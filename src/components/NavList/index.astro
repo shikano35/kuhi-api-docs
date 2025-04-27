@@ -1,6 +1,5 @@
 ---
 import NavItem from '../NavItem/index.astro';
-import { Button } from '../ui/button';
 
 export const navItems = [
   { title: 'Top', label: 'トップ', href: '/' },
@@ -8,22 +7,29 @@ export const navItems = [
   { title: 'API Reference', label: 'APIリファレンス', href: '#reference' },
   { title: 'Changelog', label: '変更履歴', href: '#changelog' },
 ];
+
+interface Props {
+  hideTop?: boolean;
+}
+
+const { hideTop = false } = Astro.props as Props;
+
+const itemsToRender = hideTop
+  ? navItems.filter((item) => item.title !== 'Top')
+  : navItems;
 ---
 
 <nav
   aria-label="Main Navigation"
-  class="sticky top-0 mt-2 flex justify-between border-b border-gray-200 bg-white sm:py-1"
+  class="border-sm:py-1 hidden justify-between md:block"
 >
-  <ul
-    class="m-0 ml-0 flex list-none items-center gap-1 p-0 sm:ml-4 sm:gap-2 lg:gap-4"
-  >
+  <ul class="flex list-none items-center gap-1 p-0 sm:ml-4 sm:gap-2 lg:gap-4">
     {
-      navItems.map((item) => (
+      itemsToRender.map((item) => (
         <li>
           <NavItem {...item} />
         </li>
       ))
     }
   </ul>
-  <Button />
 </nav>

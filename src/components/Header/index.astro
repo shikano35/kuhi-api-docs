@@ -1,21 +1,25 @@
 ---
 import ThemeToggle from '../ThemeToggle/index.astro';
-import GithubIcon from '../icons/GithubIcon/index.astro';
+import NavList from '../NavList/index.astro';
 import '@fontsource/roboto-slab';
+import { SheetSide } from '@/components/SheetSide/index';
 ---
 
 <header>
   <div class="absolute z-50 flex w-full justify-between p-4 md:px-6 lg:px-8">
-    <a
-      href="/"
-      class="flex items-center text-xl font-semibold"
-      aria-label="ホームページ"
-    >
-      <span class="font-roboto-slab">HaikuMonument API</span>
-    </a>
     <div class="flex items-center gap-4 sm:gap-6 lg:gap-8">
-      <GithubIcon />
+      <a
+        href="/"
+        class="flex items-center text-xl font-semibold"
+        aria-label="ホームページ"
+      >
+        <span class="font-roboto-slab">HaikuMonument API</span>
+      </a>
+      <NavList hideTop />
+    </div>
+    <div class="flex items-center gap-4 sm:gap-6 lg:gap-8">
       <ThemeToggle />
+      <SheetSide client:load />
     </div>
   </div>
 </header>
