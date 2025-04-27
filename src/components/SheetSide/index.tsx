@@ -4,37 +4,33 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import { navItems } from '../NavList/index.astro';
 
 export function SheetSide() {
   return (
-    <Sheet>
-      <SheetTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <Bars3Icon className="size-5" />
-        </Button>
-      </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
-          <SheetDescription>
-            Make changes to your profile here. Click save when you're done.
-          </SheetDescription>
-        </SheetHeader>
-        <div className="grid gap-4 py-4">
-
-        </div>
-        <SheetFooter>
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose>
-        </SheetFooter>
-      </SheetContent>
-    </Sheet>
+    <div className="block md:hidden">
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="ghost" size="icon">
+            <Bars3Icon className="size-5" />
+          </Button>
+        </SheetTrigger>
+        <SheetContent>
+          <div className="flex flex-col gap-8 mt-32">
+            {navItems.map((item) => (
+              <SheetClose key={item.title}>
+                <a href={item.href} className='flex flex-col items-center'>
+                  <div className="w-full text-start max-w-2/3 p-4 text-muted-foreground hover:text-primary transition">
+                    {item.label}
+                  </div>
+                </a>
+              </SheetClose>
+            ))}
+          </div>
+        </SheetContent>
+      </Sheet >
+    </div>
   )
 }
