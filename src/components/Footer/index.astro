@@ -2,23 +2,26 @@
 import '@fontsource/roboto-slab';
 ---
 
-<footer>
-  <div class="border-border grid grid-cols-1 border-t py-6 md:grid-cols-2">
+<footer class="border-t py-6 md:px-8 md:py-0">
+  <div class="grid grid-cols-1 py-6 md:grid-cols-2">
     <section
-      class="text-muted-foreground flex flex-col items-center justify-center text-sm leading-6 font-light md:items-start"
+      class="text-muted-foreground flex flex-col items-center justify-center text-center leading-loose md:items-start"
       aria-labelledby="footer-title"
     >
       <a
         href="/"
         aria-label="ホームページ"
-        class="text-primary mb-2.5 text-2xl font-normal"
+        class="text-primary hover:text- hover:text-primary/75 mb-2.5 text-2xl font-normal"
       >
         <span class="font-roboto-slab">HaikuMonument API</span>
       </a>
-      <p>句碑の情報を提供するAPI</p>
-      <small class="block py-4 text-xs">
-        &copy; {new Date().getFullYear()} Shin Takemura
-      </small>
+      <p class="text-sm">句碑の情報を提供するAPI</p>
+      <p class="block py-4 text-xs font-light">
+        &copy; {new Date().getFullYear()}{' '}
+        <a href="https://github.com/shikano35" target="_blank" rel="noreferrer">
+          Shin Takemura
+        </a>
+      </p>
     </section>
     <nav aria-label="Footer Navigation">
       <ul
