@@ -1,0 +1,14 @@
+---
+const { title, label, href } = Astro.props;
+const currentHash = new URL(Astro.request.url).hash || '#overview';
+const isActive = currentHash === href;
+---
+
+<a
+  href={href}
+  title={title}
+  aria-current={isActive ? 'page' : undefined}
+  class="text-background hover:text-input inline-block rounded p-1 transition-colors duration-200"
+>
+  <span class="text-md font-medium sm:text-sm md:text-base">{label}</span>
+</a>

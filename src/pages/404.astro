@@ -1,0 +1,23 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+import { Button } from '@/components/ui/button';
+---
+
+<Layout
+  title="404 - Not Found"
+  description="404 Error — this page was not found"
+>
+  <div class="flex min-h-screen flex-col items-center justify-center">
+    <p class="text-muted-foreground text-base lg:text-lg">404</p>
+    <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+      Page not found
+    </h1>
+    <p class="mb-8 text-sm leading-7 lg:text-base [&:not(:first-child)]:mt-6">
+      お探しのページが見つかりません
+    </p>
+    <a href="/" rel="noreferrer">
+      <Button variant="outline"> トップに戻る </Button>
+    </a>
+  </div>
+</Layout>
