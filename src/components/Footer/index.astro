@@ -1,9 +1,13 @@
 ---
 import '@fontsource/roboto-slab';
+import NavItem from '../NavItem/index.astro';
+import { navItems } from '../NavList/index.astro';
 ---
 
-<footer class="border-t py-6 md:px-8 md:py-0">
-  <div class="grid grid-cols-1 py-6 md:grid-cols-2">
+<footer class="flex min-h-screen items-center border-t px-4 pt-6 pb-8">
+  <div
+    class="grid w-full grid-cols-1 py-6 md:flex md:grid-cols-2 md:items-center md:justify-between"
+  >
     <section
       class="text-muted-foreground flex flex-col items-center justify-center text-center leading-loose md:items-start"
       aria-labelledby="footer-title"
@@ -11,7 +15,7 @@ import '@fontsource/roboto-slab';
       <a
         href="/"
         aria-label="ホームページ"
-        class="text-primary hover:text- hover:text-primary/75 mb-2.5 text-2xl font-normal"
+        class="text-primary hover:text- hover:text-primary/75 mb-2.5 text-4xl font-normal"
       >
         <span class="font-roboto-slab">HaikuMonument API</span>
       </a>
@@ -27,6 +31,13 @@ import '@fontsource/roboto-slab';
       <ul
         class="mt-4 -ml-3 flex items-center justify-center gap-0.5 md:justify-end md:gap-2 lg:gap-4"
       >
+        {
+          navItems.map((item) => (
+            <li>
+              <NavItem title={item.title} label={item.label} href={item.href} />
+            </li>
+          ))
+        }
       </ul>
     </nav>
   </div>
