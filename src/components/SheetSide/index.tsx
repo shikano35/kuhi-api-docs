@@ -21,11 +21,11 @@ export function SheetSide() {
           <div className="flex flex-col gap-8 mt-32">
             {navItems.map((item) => (
               <SheetClose key={item.title}>
-                <a href={item.href} className='flex flex-col items-center'>
-                  <div className="w-full text-start max-w-2/3 p-4 text-muted-foreground hover:text-primary transition">
+                <div className='flex flex-col items-center'>
+                  <a href={item.href} className="w-full text-start max-w-2/3 p-4 text-muted-foreground hover:text-primary transition">
                     {item.label}
-                  </div>
-                </a>
+                  </a>
+                </div>
               </SheetClose>
             ))}
           </div>
