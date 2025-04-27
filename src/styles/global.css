@@ -40,6 +40,8 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --font-roboto-slab: 'Roboto Slab', serif;
+  --color-custom1: #648ca0;
+  --color-custom2: #68b6ab;
 }
 
 :root {
