@@ -8,14 +8,7 @@ const isActive = currentHash === href;
   href={href}
   title={title}
   aria-current={isActive ? 'page' : undefined}
-  class={[
-    'inline-block',
-    'p-1',
-    'rounded',
-    'transition-colors',
-    'duration-200',
-    isActive ? 'text-blue-500' : 'text-gray-500 hover:text-blue-500',
-  ].join(' ')}
+  class="text-background hover:text-input inline-block rounded p-1 transition-colors duration-200"
 >
-  <span class="text-md sm:text-sm md:text-base">{label}</span>
+  <span class="text-md font-semibold sm:text-sm md:text-base">{label}</span>
 </a>
