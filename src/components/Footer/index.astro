@@ -2,11 +2,14 @@
 import '@fontsource/roboto-slab';
 import NavItem from '../NavItem/index.astro';
 import { navItems } from '../NavList/index.astro';
+import CopyrightNotice from '../CopyrightNotice/index.astro';
 ---
 
-<footer class="flex min-h-screen items-center border-t px-4 pt-6 pb-8">
+<footer
+  class="flex min-h-screen items-center border-t p-12 md:px-4 md:pt-6 md:pb-8"
+>
   <div
-    class="grid w-full grid-cols-1 py-6 md:flex md:grid-cols-2 md:items-center md:justify-between"
+    class="mx-auto grid w-full max-w-5xl grid-cols-1 py-6 md:flex md:items-center md:justify-between"
   >
     <section
       class="text-muted-foreground flex flex-col items-center justify-center text-center leading-loose md:items-start"
@@ -15,21 +18,16 @@ import { navItems } from '../NavList/index.astro';
       <a
         href="/"
         aria-label="ホームページ"
-        class="text-primary hover:text- hover:text-primary/75 mb-2.5 text-4xl font-normal"
+        class="text-primary hover:text-primary/75 mb-2.5 text-4xl font-normal md:text-3xl lg:text-4xl"
       >
         <span class="font-roboto-slab">HaikuMonument API</span>
       </a>
       <p class="text-sm">句碑の情報を提供するAPI</p>
-      <p class="block py-4 text-xs font-light">
-        &copy; {new Date().getFullYear()}{' '}
-        <a href="https://github.com/shikano35" target="_blank" rel="noreferrer">
-          Shin Takemura
-        </a>
-      </p>
     </section>
-    <nav aria-label="Footer Navigation">
+
+    <nav aria-label="Footer Navigation" class="my-16 flex-1 md:my-0 md:ml-16">
       <ul
-        class="mt-4 -ml-3 flex items-center justify-center gap-0.5 md:justify-end md:gap-2 lg:gap-4"
+        class="w-full flex-nowrap items-center justify-center gap-3 space-y-3 whitespace-nowrap sm:flex sm:flex-row sm:gap-4 sm:space-y-0 md:my-32 md:gap-12"
       >
         {
           navItems.map((item) => (
@@ -39,6 +37,12 @@ import { navItems } from '../NavList/index.astro';
           ))
         }
       </ul>
+      <div class="hidden md:block">
+        <CopyrightNotice />
+      </div>
     </nav>
+    <div class="block md:hidden">
+      <CopyrightNotice />
+    </div>
   </div>
 </footer>

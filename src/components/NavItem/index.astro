@@ -10,13 +10,12 @@ const isActive = currentHash === href;
   aria-current={isActive ? 'page' : undefined}
   class={[
     'inline-block',
-    'px-3',
-    'py-1',
+    'p-1',
     'rounded',
     'transition-colors',
     'duration-200',
     isActive ? 'text-blue-500' : 'text-gray-500 hover:text-blue-500',
   ].join(' ')}
 >
-  <span class="text-sm md:text-base">{label}</span>
+  <span class="text-md sm:text-sm md:text-base">{label}</span>
 </a>
