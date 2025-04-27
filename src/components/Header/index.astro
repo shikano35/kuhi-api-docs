@@ -1,10 +1,11 @@
 ---
 import ThemeToggle from '../ThemeToggle/index.astro';
+import GithubIcon from '../icons/GithubIcon/index.astro';
 import '@fontsource/roboto-slab';
 ---
 
 <header>
-  <div class="relative z-50 flex justify-between p-4">
+  <div class="relative z-50 flex justify-between p-4 md:px-6 lg:px-8">
     <a
       href="/"
       class="flex items-center text-xl font-semibold"
@@ -12,6 +13,9 @@ import '@fontsource/roboto-slab';
     >
       <span class="font-roboto-slab">HaikuMonument API</span>
     </a>
-    <ThemeToggle />
+    <div class="flex items-center gap-4 sm:gap-6 lg:gap-8">
+      <GithubIcon />
+      <ThemeToggle />
+    </div>
   </div>
 </header>
