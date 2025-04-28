@@ -1,8 +1,134 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import { ApiCarousel } from '@/components/ApiCarousel';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Layout from '../layouts/Layout.astro';
+import ApiInfoList from '../components/ApiInfoList/index.astro';
+import Changelog from '../components/Changelog/index.astro';
 ---
 
 <Layout title="句碑API" description="句碑の情報を提供するAPI">
-  <Welcome />
+  <section
+    class="relative min-h-screen bg-[url('/src/assets/img/kuhi1.jpg')] bg-cover bg-top"
+    style="clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);"
+  >
+    <div
+      class="from-custom2/80 to-custom1/80 pointer-events-none absolute inset-0 bg-linear-to-br"
+    >
+    </div>
+
+    <div
+      class="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 transform text-center"
+    >
+      <h1
+        class="text-background text-4xl font-bold whitespace-nowrap sm:text-5xl md:text-6xl"
+      >
+        <span class="block">Haiku Monument API</span>
+        <span class="block">Documentation</span>
+        <span class="mt-2 block text-sm md:text-base">句碑APIドキュメント</span>
+      </h1>
+    </div>
+  </section>
+  <section class="min-h-screen" id="overview">
+    <h2
+      class="text-foreground mt-32 text-center text-4xl font-bold whitespace-nowrap sm:text-5xl"
+    >
+      <span class="block">Overview</span>
+      <span class="mt-2 block text-sm md:text-base">概要</span>
+    </h2>
+    <div
+      class="my-24 grid grid-cols-2 place-items-center gap-y-32 px-4 md:my-32"
+    >
+      <img
+        src={'/src/assets/img/kuhi2.jpg'}
+        alt="句碑"
+        class="h-xs md:h-sm w-xs rounded-lg shadow-lg md:w-sm"
+      />
+      <div class="ml-4">
+        <p
+          class="mb-4 text-center text-3xl leading-16 font-semibold sm:text-start sm:text-4xl"
+        >
+          API
+        </p>
+        <p class="text-muted-foreground text-sm leading-10 sm:text-base">
+          句碑の情報を提供します。
+          <br />
+          {}
+          <a
+            href="https://api.kuhiapi.com/docs"
+            class="hover:text-primary flex items-center underline-offset-4 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            詳しくはこちら
+            <ArrowRightIcon className="ml-2 size-4" />
+          </a>
+        </p>
+      </div>
+      <div class="mr-4">
+        <p
+          class="mb-4 text-center text-3xl leading-16 font-semibold sm:text-start sm:text-4xl"
+        >
+          MCP
+        </p>
+        <p class="text-muted-foreground text-sm leading-10 sm:text-base">
+          LLMから情報を取得できます。
+          <br />
+          {}
+          <a
+            href="https://github.com/shikano35/kuhi-api-mcp-server"
+            class="hover:text-primary flex items-center underline-offset-4 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            詳しくはこちら
+            <ArrowRightIcon className="ml-2 size-4" />
+          </a>
+        </p>
+      </div>
+      <img
+        src={'/src/assets/img/kuhi3.jpg'}
+        alt="句碑"
+        class="h-xs md:h-sm w-xs rounded-lg shadow-lg md:w-sm"
+      />
+    </div>
+  </section>
+  <section
+    class="relative min-h-screen bg-[url('/src/assets/img/kuhi1.jpg')] bg-cover bg-top"
+    style="clip-path: polygon(0 25vh, 100% 0, 100% 75vh, 0 100%);"
+  >
+    <div
+      class="from-custom2/80 to-custom1/80 pointer-events-none absolute inset-0 flex justify-center bg-linear-to-br"
+    >
+      <p
+        class="text-background absolute top-[30%] left-[50%] flex -translate-x-1/2 -translate-y-1/2 transform flex-col space-y-2 text-center"
+      >
+        <span class="text-3xl font-semibold md:text-4xl"> 提供情報 </span>
+        <span class="text-muted text-base md:text-lg">
+          以下の情報を取得することができます
+        </span>
+      </p>
+      <ApiInfoList />
+    </div>
+  </section>
+  <section class="min-h-screen" id="reference">
+    <h2
+      class="text-foreground mt-32 mb-16 px-4 text-start text-4xl font-bold whitespace-nowrap sm:text-5xl"
+    >
+      <span class="block">API Reference</span>
+      <span class="mt-2 block text-sm md:text-base">APIリファレンス</span>
+    </h2>
+    <ApiCarousel client:load />
+  </section>
+  <section
+    class="mb-32 grid grid-cols-1 place-items-center px-4 py-16 sm:px-16 md:grid-cols-2 md:py-48"
+    id="changelog"
+  >
+    <h2
+      class="text-foreground px-4 text-start text-4xl font-bold whitespace-nowrap sm:text-5xl"
+    >
+      <span class="block">Changelog</span>
+      <span class="mt-2 block text-sm md:text-base">変更履歴</span>
+    </h2>
+    <Changelog />
+  </section>
 </Layout>

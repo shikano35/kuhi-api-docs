@@ -71,7 +71,7 @@ function SheetContent({
         {...props}
       >
         {children}
-        <SheetPrimitive.Close className="ring-offset-background data-[state=open]:bg-secondary absolute top-5 right-6 rounded-xs opacity-70 transition-opacity hover:opacity-100 disabled:pointer-events-none">
+        <SheetPrimitive.Close className="ring-offset-background data-[state=open]:bg-secondary absolute top-4.5 right-8 rounded-xs opacity-70 transition-opacity hover:opacity-100 disabled:pointer-events-none">
           <Button variant="ghost" size="icon">
             <XMarkIcon className="size-6" />
           </Button>
