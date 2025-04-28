@@ -13,7 +13,7 @@ export function SheetSide() {
     <div className="block md:hidden">
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="ghost" size="icon">
+          <Button variant="outline" size="icon" className="h-10 w-10 rounded-full">
             <Bars3Icon className="size-5" />
           </Button>
         </SheetTrigger>
