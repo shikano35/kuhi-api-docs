@@ -1,4 +1,5 @@
 ---
+import { ApiCarousel } from '@/components/ApiCarousel';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -26,7 +27,7 @@ import Layout from '../layouts/Layout.astro';
   </section>
   <section class="min-h-screen" id="overview">
     <h2
-      class="text-foreground mt-32 text-center text-5xl font-bold whitespace-nowrap md:text-6xl"
+      class="text-foreground mt-32 text-center text-4xl font-bold whitespace-nowrap sm:text-5xl md:text-6xl"
     >
       <span class="block">Overview</span>
       <span class="mt-2 block text-sm md:text-base">概要</span>
@@ -75,5 +76,13 @@ import Layout from '../layouts/Layout.astro';
     >
     </div>
   </section>
-  <section class="min-h-screen"></section>
+  <section class="min-h-screen" id="reference">
+    <h2
+      class="text-foreground mt-32 mb-16 px-4 text-start text-4xl font-bold whitespace-nowrap sm:text-5xl md:text-6xl"
+    >
+      <span class="block">API Reference</span>
+      <span class="mt-2 block text-sm md:text-base">APIリファレンス</span>
+    </h2>
+    <ApiCarousel client:load />
+  </section>
 </Layout>
