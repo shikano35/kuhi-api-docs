@@ -31,12 +31,12 @@ import Layout from '../layouts/Layout.astro';
       <span class="block">Overview</span>
       <span class="mt-2 block text-sm md:text-base">概要</span>
     </h2>
-    <div class="my-16 grid grid-cols-2 place-items-center px-4 md:my-32">
+    <div
+      class="my-24 grid grid-cols-2 place-items-center gap-y-32 px-4 md:my-32"
+    >
       <img
         src={'/src/assets/img/kuhi2.jpg'}
-        alt="kuhi"
-        width="500"
-        height="750"
+        alt="句碑"
         class="h-xs md:h-sm w-xs rounded-lg shadow-lg md:w-sm"
       />
       <div class="ml-4">
@@ -49,6 +49,21 @@ import Layout from '../layouts/Layout.astro';
           句碑の情報を提供します。
         </p>
       </div>
+      <div class="mr-4">
+        <p
+          class="text-center text-3xl leading-16 font-semibold sm:text-start sm:text-4xl"
+        >
+          MCP
+        </p>
+        <p class="text-muted-foreground text-sm sm:text-base">
+          LLMから情報を取得できます。
+        </p>
+      </div>
+      <img
+        src={'/src/assets/img/kuhi3.jpg'}
+        alt="句碑"
+        class="h-xs md:h-sm w-xs rounded-lg shadow-lg md:w-sm"
+      />
     </div>
   </section>
   <section
