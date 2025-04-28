@@ -1,8 +1,27 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="句碑API" description="句碑の情報を提供するAPI">
-  <Welcome />
+  <section
+    class="relative min-h-screen bg-[url('/src/assets/img/kuhi1.jpg')] bg-cover bg-top"
+    style="clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);"
+  >
+    <div
+      class="from-custom2/80 to-custom1/80 pointer-events-none absolute inset-0 bg-linear-to-br"
+    >
+    </div>
+
+    <div
+      class="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 transform text-center"
+    >
+      <h1
+        class="text-background text-4xl font-bold whitespace-nowrap md:text-5xl"
+      >
+        <span class="block">Haiku Monument API</span>
+        <span class="block">Documentation</span>
+        <span class="mt-2 block text-sm md:text-base">句碑APIドキュメント</span>
+      </h1>
+    </div>
+  </section>
 </Layout>
