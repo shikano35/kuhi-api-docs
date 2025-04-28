@@ -16,7 +16,7 @@ import Layout from '../layouts/Layout.astro';
       class="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 transform text-center"
     >
       <h1
-        class="text-background text-5xl font-bold whitespace-nowrap md:text-6xl"
+        class="text-background text-4xl font-bold whitespace-nowrap sm:text-5xl md:text-6xl"
       >
         <span class="block">Haiku Monument API</span>
         <span class="block">Documentation</span>
@@ -24,7 +24,33 @@ import Layout from '../layouts/Layout.astro';
       </h1>
     </div>
   </section>
-
+  <section class="min-h-screen" id="overview">
+    <h2
+      class="text-foreground mt-32 text-center text-5xl font-bold whitespace-nowrap md:text-6xl"
+    >
+      <span class="block">Overview</span>
+      <span class="mt-2 block text-sm md:text-base">概要</span>
+    </h2>
+    <div class="my-16 grid grid-cols-2 place-items-center px-4 md:my-32">
+      <img
+        src={'/src/assets/img/kuhi2.jpg'}
+        alt="kuhi"
+        width="500"
+        height="750"
+        class="h-xs md:h-sm w-xs rounded-lg shadow-lg md:w-sm"
+      />
+      <div class="ml-4">
+        <p
+          class="text-center text-3xl leading-16 font-semibold sm:text-start sm:text-4xl"
+        >
+          API
+        </p>
+        <p class="text-muted-foreground text-sm sm:text-base">
+          句碑の情報を提供します。
+        </p>
+      </div>
+    </div>
+  </section>
   <section
     class="relative min-h-screen bg-[url('/src/assets/img/kuhi1.jpg')] bg-cover bg-top"
     style="clip-path: polygon(0 25vh, 100% 0, 100% 75vh, 0 100%);"
