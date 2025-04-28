@@ -17,7 +17,7 @@ export const ApiCarousel: React.FC = () => {
     <Carousel opts={{ loop: true }}>
       <CarouselContent className="space-x-4">
         {apiReferences.map((ref) => (
-          <CarouselItem key={ref.title} className="basis-md flex-shrink-0">
+          <CarouselItem key={ref.title} className="basis-md lg:basis-lg flex-shrink-0">
             <Card className="flex flex-col items-center p-8 h-full mx-8">
               <ref.Icon className="h-24 w-24" />
               <h3 className="text-3xl font-semibold text-primary">{ref.label}</h3>
