@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
-    "preview": "astro preview",
+    "preview": "wrangler pages dev ./dist",
+    "preview:astro": "astro preview",
     "astro": "astro",
     "lint": "eslint . --ext .js,.ts,.astro,.md,.mdx --fix",
     "format": "prettier --write .",
@@ -48,13 +49,10 @@
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "tw-animate-css": "^1.2.8"
+    "tw-animate-css": "^1.2.8",
+    "wrangler": "^4.13.2"
   },
   "lint-staged": {
-    "*.{js,ts,astro,md,mdx}": [
-      "pnpm format",
-      "pnpm lint --fix",
-      "git add"
-    ]
+    "*.{js,ts,astro,md,mdx}": ["pnpm format", "pnpm lint --fix", "git add"]
   }
 }
