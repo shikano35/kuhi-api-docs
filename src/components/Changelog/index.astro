@@ -19,14 +19,14 @@ const changelogEntries: ChangelogEntry[] = [
 ];
 ---
 
-<ul class="mx-auto mt-8 w-full list-none p-0 md:mt-0">
+<ul class="mx-auto -mt-48 list-none md:mt-0">
   {
     changelogEntries.map((entry) => (
       <li class="border-border flex w-full items-baseline border-b py-4 last:border-0">
         <time class="text-muted-foreground mr-4" datetime={entry.date}>
           {entry.date}
         </time>
-        <p class="text-muted-foreground text-[0.95rem] leading-loose md:text-base">
+        <p class="text-muted-foreground text-sm leading-loose md:text-base">
           {entry.description}
         </p>
       </li>
