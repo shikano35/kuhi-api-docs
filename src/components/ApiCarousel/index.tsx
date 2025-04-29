@@ -31,7 +31,7 @@ export const ApiCarousel: React.FC = () => {
               </p>
               <CardContent className="text-muted-foreground leading-12">
                 {ref.routes.map((route) => (
-                  <div key={route} className="mb-8 last:mb-4 flex flex-col">
+                  <div key={route} className="mb-8 flex flex-col last:mb-4">
                     <p className="text-primary text-base leading-10 font-semibold sm:text-lg">
                       {route}
                     </p>
