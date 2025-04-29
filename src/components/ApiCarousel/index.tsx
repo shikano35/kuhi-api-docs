@@ -21,7 +21,7 @@ export const ApiCarousel: React.FC = () => {
             key={ref.title}
             className="flex-shrink-0 basis-md lg:basis-lg"
           >
-            <Card className="mx-8 flex h-full flex-col items-center p-8">
+            <Card className="mx-8 flex h-full flex-col items-center p-8 select-none">
               <ref.Icon className="h-16 w-16 sm:h-24 sm:w-24" />
               <h3 className="text-primary text-2xl font-semibold sm:text-3xl">
                 {ref.label}
