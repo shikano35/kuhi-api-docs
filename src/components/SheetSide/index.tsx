@@ -13,16 +13,23 @@ export function SheetSide() {
     <div className="block md:hidden">
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="outline" size="icon" className="h-10 w-10 rounded-full">
+          <Button
+            variant="outline"
+            size="icon"
+            className="h-10 w-10 rounded-full"
+          >
             <Bars3Icon className="size-5" />
           </Button>
         </SheetTrigger>
         <SheetContent>
-          <div className="flex flex-col gap-8 mt-32">
+          <div className="mt-32 flex flex-col gap-8">
             {navItems.map((item) => (
               <SheetClose key={item.title}>
-                <div className='flex flex-col items-center'>
-                  <a href={item.href} className="w-full text-start max-w-2/3 p-4 text-muted-foreground hover:text-primary transition">
+                <div className="flex flex-col items-center">
+                  <a
+                    href={item.href}
+                    className="text-muted-foreground hover:text-primary w-full max-w-2/3 p-4 text-start transition"
+                  >
                     {item.label}
                   </a>
                 </div>
@@ -30,7 +37,7 @@ export function SheetSide() {
             ))}
           </div>
         </SheetContent>
-      </Sheet >
+      </Sheet>
     </div>
-  )
+  );
 }
