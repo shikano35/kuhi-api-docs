@@ -25,6 +25,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
+    "motion": "^12.9.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tailwind-merge": "^3.2.0",
@@ -53,6 +54,10 @@
     "wrangler": "^4.13.2"
   },
   "lint-staged": {
-    "*.{js,ts,astro,md,mdx}": ["pnpm format", "pnpm lint --fix", "git add"]
+    "*.{js,ts,astro,md,mdx}": [
+      "pnpm format",
+      "pnpm lint --fix",
+      "git add"
+    ]
   }
 }
