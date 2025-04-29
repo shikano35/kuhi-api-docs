@@ -1,10 +1,10 @@
 // components/FadeIn.tsx
-"use client";
+'use client';
 
-import { motion, useReducedMotion } from "motion/react";
-import type { ComponentPropsWithoutRef } from "react";
+import { motion, useReducedMotion } from 'motion/react';
+import type { ComponentPropsWithoutRef } from 'react';
 
-const viewportSettings = { once: true, margin: "0px 0px -100px" };
+const viewportSettings = { once: true, margin: '0px 0px -100px' };
 
 export function FadeIn(props: ComponentPropsWithoutRef<typeof motion.div>) {
   const shouldReduceMotion = useReducedMotion();
@@ -28,7 +28,7 @@ export function FadeIn(props: ComponentPropsWithoutRef<typeof motion.div>) {
       viewport={viewportSettings}
       transition={{
         duration: 0.5,
-        ease: "easeInOut",
+        ease: 'easeInOut',
       }}
       {...props}
     />
@@ -61,7 +61,7 @@ export function FadeTransition({
       viewport={viewportSettings}
       initial="hidden"
       whileInView="visible"
-      transition={{ duration, ease: "easeInOut" }}
+      transition={{ duration, ease: 'easeInOut' }}
       variants={variants}
       aria-live="polite"
       className={className}
