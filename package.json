@@ -10,7 +10,8 @@
     "astro": "astro",
     "lint": "eslint . --ext .js,.ts,.astro,.md,.mdx --fix",
     "format": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy": "wrangler pages deploy dist"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -55,10 +56,6 @@
     "wrangler": "^4.13.2"
   },
   "lint-staged": {
-    "*.{js,ts,astro,md,mdx}": [
-      "pnpm format",
-      "pnpm lint --fix",
-      "git add"
-    ]
+    "*.{js,ts,astro,md,mdx}": ["pnpm format", "pnpm lint --fix", "git add"]
   }
 }
