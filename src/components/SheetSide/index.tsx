@@ -21,7 +21,9 @@ export function SheetSide() {
             <Bars3Icon className="size-5" />
           </Button>
         </SheetTrigger>
-        <SheetContent>
+        <SheetContent
+          onCloseAutoFocus={(event) => event.preventDefault()}
+        >
           <div className="mt-32 flex flex-col gap-8">
             {navItems.map((item) => (
               <SheetClose key={item.title}>
