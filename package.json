@@ -10,7 +10,7 @@
     "astro": "astro",
     "lint": "eslint . --ext .js,.ts,.astro,.md,.mdx --fix",
     "format": "prettier --write .",
-    "prepare": "husky install",
+    "prepare": "husky",
     "deploy": "wrangler pages deploy dist"
   },
   "dependencies": {
