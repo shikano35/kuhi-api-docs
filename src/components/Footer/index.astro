@@ -9,42 +9,48 @@ import CopyrightNotice from '../CopyrightNotice/index.astro';
   class="from-custom1/95 to-custom2/95 flex min-h-screen items-center border-t bg-linear-to-br bg-fixed p-12 md:px-4 md:pt-6 md:pb-8"
 >
   <div
-    class="mx-auto grid w-full max-w-5xl grid-cols-1 py-6 md:flex md:items-center md:justify-between xl:max-w-6xl 2xl:max-w-7xl"
+    class="mx-auto grid w-full max-w-5xl grid-cols-1 py-6 xl:max-w-6xl 2xl:max-w-7xl"
   >
-    <section
-      class="text-muted-foreground flex flex-col items-center justify-center text-center leading-loose md:items-start"
-      aria-labelledby="footer-title"
-    >
-      <a
-        href="/"
-        aria-label="ホームページ"
-        class="text-background hover:text-input dark:hover:text-muted mb-2.5 text-4xl font-normal md:text-3xl lg:text-4xl"
+    <div class="md:flex md:items-center md:justify-between">
+      <section
+        class="text-muted-foreground flex flex-col items-center justify-center text-center leading-loose md:items-start"
+        aria-labelledby="footer-title"
       >
-        <span class="font-roboto-slab">HaikuMonument API</span>
-      </a>
-      <p class="text-muted text-sm">句碑の情報を提供するAPI</p>
-    </section>
+        <a
+          href="/"
+          aria-label="ホームページ"
+          class="text-background hover:text-input dark:hover:text-muted mb-2.5 text-4xl font-normal md:text-3xl lg:text-4xl"
+        >
+          <span class="font-roboto-slab">HaikuMonument API</span>
+        </a>
+        <p class="text-muted text-sm">句碑の情報を提供するAPI</p>
+        <div class="hidden md:block">
+          <CopyrightNotice />
+        </div>
+      </section>
 
-    <nav
-      aria-label="Footer Navigation"
-      class="my-16 flex-1 md:my-0 md:ml-16 xl:ml-32 2xl:ml-48"
-    >
-      <ul
-        class="w-full flex-nowrap items-center justify-center gap-3 space-y-3 whitespace-nowrap sm:flex sm:flex-row sm:gap-8 sm:space-y-0 md:my-32 md:justify-between md:gap-12"
+      <nav
+        aria-label="Footer Navigation"
+        class="my-16 flex-1 md:my-0 md:ml-16 xl:ml-32 2xl:ml-48"
       >
-        {
-          navItems.map((item) => (
-            <li>
-              <NavItem title={item.title} label={item.label} href={item.href} />
-            </li>
-          ))
-        }
-      </ul>
-      <div class="hidden md:block">
-        <CopyrightNotice />
-      </div>
-    </nav>
-    <div class="block md:hidden">
+        <ul
+          class="w-full flex-nowrap items-center justify-center gap-3 space-y-3 whitespace-nowrap sm:flex sm:flex-row sm:gap-8 sm:space-y-0 md:my-32 md:justify-between"
+        >
+          {
+            navItems.map((item) => (
+              <li>
+                <NavItem
+                  title={item.title}
+                  label={item.label}
+                  href={item.href}
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+    <div class="mt-8 block flex-none md:mt-0 md:hidden">
       <CopyrightNotice />
     </div>
   </div>
