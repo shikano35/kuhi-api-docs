@@ -8,7 +8,7 @@
     "preview": "wrangler pages dev ./dist",
     "preview:astro": "astro preview",
     "astro": "astro",
-    "lint": "eslint . --ext .js,.ts,.astro,.md,.mdx --fix",
+    "lint": "eslint --fix .",
     "format": "prettier --write .",
     "prepare": "husky",
     "deploy": "wrangler pages deploy dist"

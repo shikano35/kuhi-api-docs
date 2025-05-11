@@ -3,6 +3,8 @@ import {
   BookOpenIcon,
   CalendarIcon,
   ChatBubbleBottomCenterTextIcon,
+  ClockIcon,
+  CubeIcon,
   DocumentTextIcon,
   MapPinIcon,
   PhotoIcon,
@@ -18,19 +20,21 @@ export const apiInfoItems = [
   { icon: CalendarIcon, label: '建立年' },
   { icon: PhotoIcon, label: '画像' },
   { icon: ChatBubbleBottomCenterTextIcon, label: '解説' },
+  { icon: ClockIcon, label: '季節' },
+  { icon: CubeIcon, label: '総高' },
 ];
 ---
 
 <ul
-  class="text-background absolute top-5/12 grid grid-cols-3 gap-8 p-4 text-sm font-semibold sm:grid-cols-4 sm:text-xl md:gap-14 lg:text-2xl"
+  class="text-background absolute top-[37.5%] grid grid-cols-3 gap-8 p-4 text-sm font-semibold sm:grid-cols-4 sm:gap-10 sm:text-xl md:gap-12 lg:text-2xl"
   aria-label="提供情報リスト"
 >
   {
     apiInfoItems.map((item) => (
       <li>
-        <Card className="p-2 sm:p-3 md:p-4 shadow-md">
+        <Card className="p-2.5 sm:p-3 xl:p-3.5 shadow-md">
           <div class="flex h-full items-center justify-center">
-            <item.icon className="mr-2 h-6 w-6" />
+            <item.icon className="mr-2 h-5 w-6 sm:h-6 sm:w-6" />
             <p>{item.label}</p>
           </div>
         </Card>
