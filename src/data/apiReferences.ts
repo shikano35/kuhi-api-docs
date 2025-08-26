@@ -43,7 +43,7 @@ export const apiReferences: ApiReference[] = [
     Icon: PencilSquareIcon,
   },
   {
-    title: '句',
+    title: '俳句',
     label: 'poems',
     routes: ['/poems', '/poems/{id}'],
     routeDescriptions: ['俳句の情報を一覧取得', '俳句の情報を取得'],

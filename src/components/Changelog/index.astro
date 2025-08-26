@@ -7,14 +7,9 @@ export type ChangelogEntry = {
 
 const changelogEntries: ChangelogEntry[] = [
   {
-    id: 'entry-4',
+    id: 'entry-3',
     date: '2025-08-26',
     description: 'データ構造を更新しました',
-  },
-  {
-    id: 'entry-3',
-    date: '2025-08-25',
-    description: '碑文・イベント・メディア情報を追加しました',
   },
   {
     id: 'entry-2',
@@ -32,13 +27,11 @@ const changelogEntries: ChangelogEntry[] = [
 <ul class="mx-auto -mt-48 list-none md:mt-0">
   {
     changelogEntries.map((entry) => (
-      <li class="border-border flex w-full items-baseline border-b py-4 last:border-0">
+      <li class="border-border flex w-full items-baseline border-b py-4 text-sm last:border-0 lg:text-base">
         <time class="text-muted-foreground mr-4" datetime={entry.date}>
           {entry.date}
         </time>
-        <p class="text-muted-foreground text-sm leading-loose md:text-base">
-          {entry.description}
-        </p>
+        <p class="text-muted-foreground leading-loose">{entry.description}</p>
       </li>
     ))
   }
