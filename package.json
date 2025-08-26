@@ -56,10 +56,6 @@
     "wrangler": "^4.28.1"
   },
   "lint-staged": {
-    "*.{js,ts,astro,md,mdx}": [
-      "pnpm format",
-      "pnpm lint --fix",
-      "git add"
-    ]
+    "*.{js,ts,astro,md,mdx}": ["pnpm format", "pnpm lint --fix", "git add"]
   }
 }
