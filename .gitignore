@@ -23,3 +23,11 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .github/instructions
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+.open-next
+.vscode
+wrangler.toml
+.next
