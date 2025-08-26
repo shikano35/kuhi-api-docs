@@ -9,19 +9,23 @@ import {
   MapPinIcon,
   PhotoIcon,
   UserIcon,
+  PencilSquareIcon,
+  TagIcon,
 } from '@heroicons/react/24/outline';
 import { Card } from '../ui/card';
 
 export const apiInfoItems = [
-  { icon: BookOpenIcon, label: '俳句' },
+  { icon: BookOpenIcon, label: '句碑' },
+  { icon: PencilSquareIcon, label: '碑文' },
+  { icon: ChatBubbleBottomCenterTextIcon, label: '俳句' },
   { icon: UserIcon, label: '俳人' },
   { icon: MapPinIcon, label: '場所' },
   { icon: DocumentTextIcon, label: '出典' },
-  { icon: CalendarIcon, label: '建立年' },
-  { icon: PhotoIcon, label: '画像' },
-  { icon: ChatBubbleBottomCenterTextIcon, label: '解説' },
+  { icon: CalendarIcon, label: '建立日' },
+  { icon: PhotoIcon, label: 'メディア' },
+  { icon: TagIcon, label: '季語' },
   { icon: ClockIcon, label: '季節' },
-  { icon: CubeIcon, label: '総高' },
+  { icon: CubeIcon, label: '材質' },
 ];
 ---
 

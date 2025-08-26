@@ -6,7 +6,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { navItems } from '../NavList/index.astro';
+import { navItems } from '@/data/navigation';
 
 export function SheetSide() {
   return (
