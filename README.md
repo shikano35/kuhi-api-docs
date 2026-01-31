@@ -1,12 +1,12 @@
-# 句碑API ドキュメント
+# 句碑APIドキュメント
 
-句碑APIのドキュメントです。
+句碑APIのドキュメントサイトです。
 
 ## 概要
 
 句碑APIは、日本全国の句碑を提供するAPIです。句碑本体の情報、刻まれた俳句、俳人、設置場所、出典資料を提供します。
 
-## 主要エンドポイント
+## REST API エンドポイント
 
 ### 句碑 (Monuments)
 
@@ -44,6 +44,32 @@
 - `/sources/{id}` - 特定の出典の詳細情報
 - `/sources/{id}/monuments` - 出典に関連する句碑の一覧
 
+## Linked Open Data エンドポイント
+
+句碑データを RDF 形式で提供します。Turtle, JSON-LD, RDF/XML 等の形式でデータを取得できます。
+
+以下のエンドポイントは REST API とは別の [URL](https://data.kuhi.jp) を持ちます。
+
+### エンドポイント
+
+- `/monuments` - 句碑一覧を取得
+- `/monuments/{id}` - 特定の句碑を取得
+- `/poems` - 俳句一覧を取得
+- `/poems/{id}` - 特定の俳句を取得
+- `/poets` - 俳人一覧を取得
+- `/poets/{id}` - 特定の俳人を取得
+- `/locations` - 場所一覧を取得
+- `/locations/{id}` - 特定の場所を取得
+- `/void` - VoID ディスクリプタ
+
+### 使用語彙
+
+- **Schema.org** - 汎用的なメタデータの表現
+- **Dublin Core** - 文書のメタデータ
+- **FOAF** - 人物・組織情報
+- **WGS84 Geo** - 地理座標
+- **Haiku Monument** - 句碑固有の情報
+
 ## 開発
 
 ```bash
@@ -68,5 +94,6 @@ pnpm lint
 
 ## 参考リンク
 
-- [API ドキュメント](https://api.kuhi.jp/docs)
+- [REST API ドキュメント](https://api.kuhi.jp/docs)
+- [Linked Open Data](https://data.kuhi.jp)
 - [MCP サーバー](https://github.com/shikano35/kuhi-api-mcp-server)
