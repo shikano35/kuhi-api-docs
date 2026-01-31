@@ -1,5 +1,6 @@
 ---
 import { ApiCarousel } from '@/components/ApiCarousel';
+import { RdfCarousel } from '@/components/RdfCarousel';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Layout from '../layouts/Layout.astro';
 import ApiInfoList from '../components/ApiInfoList/index.astro';
@@ -7,6 +8,7 @@ import Changelog from '../components/Changelog/index.astro';
 import { Image } from 'astro:assets';
 import kuhi2 from '@/assets/img/kuhi2.webp';
 import kuhi3 from '@/assets/img/kuhi3.webp';
+import kuhi4 from '@/assets/img/kuhi4.webp';
 ---
 
 <Layout title="句碑API" description="句碑の情報を提供するAPI">
@@ -50,10 +52,10 @@ import kuhi3 from '@/assets/img/kuhi3.webp';
         <p
           class="mb-4 text-center text-3xl leading-16 font-semibold sm:text-start sm:text-4xl 2xl:text-5xl"
         >
-          API
+          Web API
         </p>
         <p class="text-muted-foreground text-sm leading-10 sm:text-base">
-          句碑の情報を提供します
+          句碑の情報をRESTful APIとして提供しています
           <br />
           {}
           <a
@@ -71,14 +73,14 @@ import kuhi3 from '@/assets/img/kuhi3.webp';
         <p
           class="mb-4 text-center text-3xl leading-16 font-semibold sm:text-start sm:text-4xl 2xl:text-5xl"
         >
-          MCP
+          Linked Open Data
         </p>
         <p class="text-muted-foreground text-sm leading-10 sm:text-base">
-          LLMから情報を取得できます
+          句碑の情報をLinked Open Dataで提供しています
           <br />
           {}
           <a
-            href="https://github.com/shikano35/kuhi-api-mcp-server"
+            href="https://data.kuhi.jp"
             class="hover:text-primary flex items-center underline-offset-4 hover:underline"
             target="_blank"
             rel="noopener noreferrer"
@@ -93,6 +95,33 @@ import kuhi3 from '@/assets/img/kuhi3.webp';
         alt="句碑"
         class="h-xs md:h-sm 2xl:h-md w-xs rounded-lg shadow-lg md:w-sm 2xl:w-md"
       />
+    </div>
+    <div class="my-24 grid grid-cols-2 place-items-center gap-y-32 px-4">
+      <Image
+        src={kuhi4}
+        alt="句碑"
+        class="h-xs md:h-sm w-xs rounded-lg shadow-lg md:w-sm"
+      />
+      <div class="ml-4">
+        <p
+          class="mb-4 text-center text-3xl leading-16 font-semibold sm:text-start sm:text-4xl 2xl:text-5xl"
+        >
+          MCP Server
+        </p>
+        <p class="text-muted-foreground text-sm leading-10 sm:text-base">
+          LLMから情報を取得できます
+          <br />
+          <a
+            href="https://github.com/shikano35/kuhi-api-mcp-server"
+            class="hover:text-primary flex items-center underline-offset-4 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            詳しくはこちら
+            <ArrowRightIcon className="ml-2 size-4" />
+          </a>
+        </p>
+      </div>
     </div>
   </section>
   <section
@@ -115,7 +144,7 @@ import kuhi3 from '@/assets/img/kuhi3.webp';
       <ApiInfoList />
     </div>
   </section>
-  <section class="min-h-screen" id="reference">
+  <section class="mb-16 min-h-screen" id="reference">
     <h2
       class="text-foreground mt-32 mb-16 px-4 text-start text-4xl font-bold whitespace-nowrap sm:text-5xl 2xl:text-6xl"
     >
@@ -125,6 +154,17 @@ import kuhi3 from '@/assets/img/kuhi3.webp';
       >
     </h2>
     <ApiCarousel client:load />
+  </section>
+  <section class="min-h-screen py-16" id="uri">
+    <h2
+      class="text-foreground mb-16 px-4 text-start text-4xl font-bold whitespace-nowrap sm:text-5xl 2xl:text-6xl"
+    >
+      <span class="block">URI</span>
+      <span class="mt-2 block text-sm md:text-base 2xl:text-lg">
+        RDFリソース
+      </span>
+    </h2>
+    <RdfCarousel client:load />
   </section>
   <section
     class="grid min-h-screen grid-cols-1 place-items-center px-4 py-16 md:grid-cols-2 md:px-2 lg:px-16"

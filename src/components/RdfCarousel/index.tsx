@@ -9,14 +9,14 @@ import {
   CarouselNext,
 } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
-import { apiReferences } from '@/data/apiReferences';
+import { rdfReferences } from '@/data/rdfReferences';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
-export const ApiCarousel: React.FC = () => {
+export const RdfCarousel: React.FC = () => {
   return (
     <Carousel opts={{ loop: true }}>
       <CarouselContent className="space-x-4">
-        {apiReferences.map((ref) => (
+        {rdfReferences.map((ref) => (
           <CarouselItem
             key={ref.title}
             className="shrink-0 basis-lg 2xl:basis-2xl"
