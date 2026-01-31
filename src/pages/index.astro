@@ -42,7 +42,9 @@ import kuhi4 from '@/assets/img/kuhi4.webp';
       <span class="block">Overview</span>
       <span class="mt-2 block text-sm md:text-base 2xl:text-lg">概要</span>
     </h2>
-    <div class="my-24 grid grid-cols-2 place-items-center gap-y-32 px-4">
+    <div
+      class="my-24 grid grid-cols-1 place-items-center gap-y-32 px-4 md:grid-cols-2"
+    >
       <Image
         src={kuhi2}
         alt="句碑"
@@ -57,7 +59,6 @@ import kuhi4 from '@/assets/img/kuhi4.webp';
         <p class="text-muted-foreground text-sm leading-10 sm:text-base">
           句碑の情報をRESTful APIとして提供しています
           <br />
-          {}
           <a
             href="https://api.kuhi.jp/docs"
             class="hover:text-primary flex items-center underline-offset-4 hover:underline"
@@ -78,7 +79,6 @@ import kuhi4 from '@/assets/img/kuhi4.webp';
         <p class="text-muted-foreground text-sm leading-10 sm:text-base">
           句碑の情報をLinked Open Dataで提供しています
           <br />
-          {}
           <a
             href="https://data.kuhi.jp"
             class="hover:text-primary flex items-center underline-offset-4 hover:underline"
@@ -96,7 +96,9 @@ import kuhi4 from '@/assets/img/kuhi4.webp';
         class="h-xs md:h-sm 2xl:h-md w-xs rounded-lg shadow-lg md:w-sm 2xl:w-md"
       />
     </div>
-    <div class="my-24 grid grid-cols-2 place-items-center gap-y-32 px-4">
+    <div
+      class="my-24 grid grid-cols-1 place-items-center gap-y-32 px-4 md:grid-cols-2"
+    >
       <Image
         src={kuhi4}
         alt="句碑"

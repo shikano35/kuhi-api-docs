@@ -46,7 +46,9 @@
 
 ## Linked Open Data エンドポイント
 
-RDF形式で句碑データを提供しています。Turtle, JSON-LD, RDF/XML等の形式でデータを取得できます。
+句碑データを RDF 形式で提供します。Turtle, JSON-LD, RDF/XML 等の形式でデータを取得できます。
+
+以下のエンドポイントは REST API とは別の [URL](https://data.kuhi.jp) を持ちます。
 
 ### エンドポイント
 
