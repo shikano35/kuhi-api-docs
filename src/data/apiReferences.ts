@@ -54,8 +54,8 @@ export const apiReferences: ApiReference[] = [
     label: 'poets',
     routes: ['/poets', '/poets/{id}', '/poets/{id}/monuments'],
     routeDescriptions: [
-      '俳人情報を一覧取得',
-      '俳人情報を取得',
+      '俳人の情報を一覧取得',
+      '俳人の情報を取得',
       '俳人に関連する句碑の一覧取得',
     ],
     Icon: UserIcon,
@@ -76,8 +76,8 @@ export const apiReferences: ApiReference[] = [
     label: 'sources',
     routes: ['/sources', '/sources/{id}', '/sources/{id}/monuments'],
     routeDescriptions: [
-      '出典情報を一覧取得',
-      '出典情報を取得',
+      '出典の情報を一覧取得',
+      '出典の情報を取得',
       '出典に関連する句碑の一覧取得',
     ],
     Icon: DocumentTextIcon,

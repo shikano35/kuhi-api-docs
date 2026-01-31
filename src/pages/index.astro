@@ -48,20 +48,22 @@ import kuhi4 from '@/assets/img/kuhi4.webp';
       <Image
         src={kuhi2}
         alt="句碑"
-        class="h-xs md:h-sm w-xs rounded-lg shadow-lg md:w-sm"
+        class="h-xs md:h-sm hidden w-xs rounded-lg shadow-lg md:block md:w-sm"
       />
       <div class="ml-4">
         <p
-          class="mb-4 text-center text-3xl leading-16 font-semibold sm:text-start sm:text-4xl 2xl:text-5xl"
+          class="mb-4 text-center text-3xl leading-16 font-semibold md:text-start md:text-4xl 2xl:text-5xl"
         >
           Web API
         </p>
-        <p class="text-muted-foreground text-sm leading-10 sm:text-base">
+        <p
+          class="text-muted-foreground text-center text-sm leading-10 sm:text-base md:text-start"
+        >
           句碑の情報をRESTful APIとして提供しています
           <br />
           <a
             href="https://api.kuhi.jp/docs"
-            class="hover:text-primary flex items-center underline-offset-4 hover:underline"
+            class="hover:text-primary flex items-center justify-center underline-offset-4 hover:underline md:justify-start"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -72,16 +74,18 @@ import kuhi4 from '@/assets/img/kuhi4.webp';
       </div>
       <div class="mr-4">
         <p
-          class="mb-4 text-center text-3xl leading-16 font-semibold sm:text-start sm:text-4xl 2xl:text-5xl"
+          class="mb-4 text-center text-3xl leading-16 font-semibold md:text-start md:text-4xl 2xl:text-5xl"
         >
           Linked Open Data
         </p>
-        <p class="text-muted-foreground text-sm leading-10 sm:text-base">
+        <p
+          class="text-muted-foreground text-center text-sm leading-10 sm:text-base md:text-start"
+        >
           句碑の情報をLinked Open Dataで提供しています
           <br />
           <a
             href="https://data.kuhi.jp"
-            class="hover:text-primary flex items-center underline-offset-4 hover:underline"
+            class="hover:text-primary flex items-center justify-center underline-offset-4 hover:underline md:justify-start"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -93,7 +97,7 @@ import kuhi4 from '@/assets/img/kuhi4.webp';
       <Image
         src={kuhi3}
         alt="句碑"
-        class="h-xs md:h-sm 2xl:h-md w-xs rounded-lg shadow-lg md:w-sm 2xl:w-md"
+        class="h-xs md:h-sm 2xl:h-md hidden w-xs rounded-lg shadow-lg md:block md:w-sm 2xl:w-md"
       />
     </div>
     <div
@@ -102,20 +106,22 @@ import kuhi4 from '@/assets/img/kuhi4.webp';
       <Image
         src={kuhi4}
         alt="句碑"
-        class="h-xs md:h-sm w-xs rounded-lg shadow-lg md:w-sm"
+        class="h-xs md:h-sm hidden w-xs rounded-lg shadow-lg md:block md:w-sm"
       />
       <div class="ml-4">
         <p
-          class="mb-4 text-center text-3xl leading-16 font-semibold sm:text-start sm:text-4xl 2xl:text-5xl"
+          class="mb-4 text-center text-3xl leading-16 font-semibold md:text-start md:text-4xl 2xl:text-5xl"
         >
           MCP Server
         </p>
-        <p class="text-muted-foreground text-sm leading-10 sm:text-base">
+        <p
+          class="text-muted-foreground text-center text-sm leading-10 sm:text-base md:text-start"
+        >
           LLMから情報を取得できます
           <br />
           <a
             href="https://github.com/shikano35/kuhi-api-mcp-server"
-            class="hover:text-primary flex items-center underline-offset-4 hover:underline"
+            class="hover:text-primary flex items-center justify-center underline-offset-4 hover:underline md:justify-start"
             target="_blank"
             rel="noopener noreferrer"
           >
