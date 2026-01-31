@@ -10,6 +10,8 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
+  deployments: write
 
 jobs:
   lint-and-build:
@@ -76,5 +78,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: '4.61.1'
           command: pages deploy dist --project-name=kuhi-api-docs
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
