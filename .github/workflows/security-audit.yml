@@ -1,0 +1,154 @@
+name: Security Audit
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: security-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '22'
+  FAIL_LEVEL: high
+
+jobs:
+  audit:
+    name: Dependency audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "### Dependency audit"
+            echo ""
+            echo '```'
+            pnpm audit --ignore-registry-errors 2>&1 | tail -40 || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Fail on high/critical advisories
+        run: |
+          if pnpm audit --audit-level="$FAIL_LEVEL" --ignore-registry-errors; then
+            echo "::notice::No ${FAIL_LEVEL}+ severity advisories found."
+          else
+            echo "::error::Found ${FAIL_LEVEL}+ severity advisories. Run 'pnpm audit' locally, then 'pnpm audit --fix' or upgrade the offending package."
+            exit 1
+          fi
+
+  auto-remediate:
+    name: Auto-remediate advisories
+    needs: audit
+    if: >-
+      always()
+      && needs.audit.result == 'failure'
+      && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Attempt automatic fix
+        id: fix
+        run: |
+          pnpm audit --fix --ignore-registry-errors || true
+          pnpm install --no-frozen-lockfile
+          if git diff --quiet -- package.json pnpm-lock.yaml; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No changes produced by 'pnpm audit --fix'."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Verify lint, format and build after fix
+        if: steps.fix.outputs.changed == 'true'
+        run: |
+          pnpm eslint .
+          pnpm prettier --check .
+          pnpm build
+
+      - name: Open remediation pull request
+        if: steps.fix.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TARGET_BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          BRANCH="chore/security-audit-fix-$(date +%Y%m%d)"
+
+          if git ls-remote --exit-code --heads origin "$BRANCH" >/dev/null 2>&1; then
+            echo "Branch $BRANCH already exists - skipping."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add package.json pnpm-lock.yaml
+          git commit -m "chore(deps): apply pnpm audit --fix overrides"
+          git push origin "$BRANCH"
+
+          cat > /tmp/pr-body.md <<'BODY'
+          Automated remediation produced by `pnpm audit --fix`.
+
+          Lint, format check and `pnpm build` all passed on this branch before the
+          PR was opened.
+
+          **Please review before merging.** `pnpm audit --fix` works by pinning
+          transitive dependencies through `pnpm.overrides`, which can pull in a
+          major version of a nested package. Check the `package.json` diff.
+
+          > Note: pull requests opened with `GITHUB_TOKEN` do not trigger other
+          > workflows. Push an empty commit, or close and reopen this PR, to run
+          > the full CI pipeline against it.
+          BODY
+
+          gh pr create \
+            --base "$TARGET_BRANCH" \
+            --head "$BRANCH" \
+            --title "chore(deps): automated security audit fix" \
+            --body-file /tmp/pr-body.md

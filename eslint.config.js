@@ -31,6 +31,10 @@ export default [
     ignores: [
       'node_modules/**',
       'dist/**',
+      '.astro/**',
+      '.wrangler/**',
+      'report/**',
+      'CLAUDE.md',
       'src/components/ThemeToggle/index.astro',
     ],
   },

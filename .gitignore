@@ -31,3 +31,8 @@ next-env.d.ts
 .vscode
 wrangler.toml
 .next
+/report
+CLAUDE.md
+
+# wrangler / cloudflare local state and build artifacts
+.wrangler/
