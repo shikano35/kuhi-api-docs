@@ -11,6 +11,9 @@ on:
 permissions:
   contents: read
 
+env:
+  NODE_VERSION: '22'
+
 jobs:
   lint-and-build:
     name: Lint and Build
@@ -26,7 +29,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'pnpm'
 
       - name: Install dependencies
@@ -67,7 +70,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: ${{ env.NODE_VERSION }}
 
       - name: Download build artifacts
         uses: actions/download-artifact@v4
@@ -80,6 +83,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: '3.101.0'
+          wranglerVersion: '4.118.0'
           command: pages deploy dist --project-name=kuhi-api-docs
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
