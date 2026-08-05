@@ -6,6 +6,7 @@ yarn.lock
 # Build output
 dist/
 .astro/
+.wrangler/
 
 # Node modules
 node_modules/
