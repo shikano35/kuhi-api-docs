@@ -33,6 +33,7 @@ wrangler.toml
 .next
 /report
 CLAUDE.md
+AGENTS.md
 
 # wrangler / cloudflare local state and build artifacts
 .wrangler/
